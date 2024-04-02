@@ -9,7 +9,7 @@ public class UnitBat extends Unit {
 	}
 
 	@Override
-	public void skill(Vector<Unit> list) {
+	public void skill(Vector<Unit> monList, Vector<Player> playerList) {
 		System.out.println("적 한명에게 침묵 시전");
 		
 	}

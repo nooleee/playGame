@@ -9,7 +9,7 @@ public class UnitOrc extends Unit {
 	}
 
 	@Override
-	public void skill(Vector<Unit> list) {
+	public void skill(Vector<Unit> monList, Vector<Player> playerList) {
 		System.out.println("한명에게 2배의 데미지 + 기절");
 		
 	}
