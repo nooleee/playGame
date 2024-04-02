@@ -15,4 +15,21 @@ public class UnitManager {
 		player_list.add(new Player("마법사", 800, 60));
 		player_list.add(new Player("힐러", 500, 70));
 	}
+	
+	private void monsterRandomSet(int size) {
+		for(int i = 0; i < size; i++) {
+			int num = ran.nextInt(mons.length);
+			try {
+				Class<?> clazz = Class.forName(path + mons[num]);
+				Object obj = clazz.getDeclaredConstructor().newInstance();
+				Unit temp = (Unit) obj;
+				int hp = ran.nextInt(100) + 100;
+				int power = ran.nextInt(10) + 10;
+				temp.setMonster(hp, power);
+				monster_list.add(temp);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+	}
 }
