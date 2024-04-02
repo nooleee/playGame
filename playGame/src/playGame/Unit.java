@@ -24,6 +24,15 @@ public abstract class Unit {
 	}
 	
 	
-
+	public void attack(Unit target) {
+		target.hp -= power;
+		System.out.printf("[%s]이 [%s]에게 %d의 데미지를 입힙니다.\n", name, target.name, power);
+		if(target.hp <= 0) {
+			System.out.printf("[%s]이 [%s]을 쓰러뜨렸습니다.", name, target.name);
+			target.hp = 0;
+		}
+	}
+	
+	
 	
 }
