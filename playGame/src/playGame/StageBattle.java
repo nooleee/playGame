@@ -10,6 +10,9 @@ public class StageBattle extends Stage {
 	private Random ran = new Random();
 	private int monDead = 0;
 	private int playerDead = 0;
+	private final int ATTACK = 1;
+	private final int SKILL = 2;
+	
 	
 	@Override
 	public boolean update() {
@@ -44,6 +47,27 @@ public class StageBattle extends Stage {
 		}
 	}
 	
+	public void playerAttack(int index) {
+		Player player = playerList.get(index);
+		if(player.getCurhp() <= 0)
+			return;
+		System.out.println("=====[메뉴 선택]=====");
+		System.out.printf("[%s][1.어택][2.스킬]");
+		int sel = GameManager.scan.nextInt();
+		
+		if(sel == ATTACK) {
+			while(true) {
+				int idx = ran.nextInt(monList.size());
+				
+				if(monList.get(idx).getCurhp() > 0) {
+					player.attack(monList.get(idx));
+					break;
+				}
+			}
+		} else if(sel == SKILL) {
+			
+		}
+	}
 	
 	
 }
