@@ -8,7 +8,7 @@ public class UnitOrc extends Unit {
 
 	@Override
 	public void skill(Unit target) {
-		// TODO Auto-generated method stub
+		System.out.println("한명에게 2배의 데미지 + 기절");
 		
 	}
 

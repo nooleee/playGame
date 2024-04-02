@@ -8,7 +8,7 @@ public class UnitBat extends Unit {
 
 	@Override
 	public void skill(Unit target) {
-		// TODO Auto-generated method stub
+		System.out.println("적 한명에게 침묵 시전");
 		
 	}
 
