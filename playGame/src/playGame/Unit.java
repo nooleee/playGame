@@ -33,6 +33,6 @@ public abstract class Unit {
 		}
 	}
 	
-	
+	public abstract void skill(Unit target);
 	
 }
