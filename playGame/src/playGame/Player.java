@@ -14,15 +14,15 @@ public class Player extends Unit {
 	}
 
 	@Override
-	public void skill(Vector<Unit> list) {
+	public void skill(Vector<Unit> monList, Vector<Player> playerList) {
 		if(this.name.equals(WARRIOR)) {
-			superAttack(list);
+			superAttack(monList);
 		}
 		else if(this.name.equals(WIZARD)) {
-			meteo(list);
+			meteo(monList);
 		}
 		else if(this.name.equals(HEALER)) {
-//			heal(list);
+			heal(playerList);
 		}
 	}
 	
@@ -61,6 +61,16 @@ public class Player extends Unit {
 		}
 		System.out.printf("[%s]의 스킬 발동!\n", name);
 		System.out.printf("[%s]이 적 전체에게 POWER의 60프로의 힘으로 메테오를 날립니다.\n", name);
+	}
+	
+	private void heal(Vector<Player> list) {
+		for(int i = 0; i < list.size(); i++) {
+			Player target = list.get(i);
+			target.curhp += this.power;
+			if(target.curhp > target.maxhp)
+				target.curhp = target.maxhp;
+		}
+		System.out.printf("[%s]가 아군 전체에게 %d만큼 체력 회복\n", this.name, this.power);
 	}
 	
 	
