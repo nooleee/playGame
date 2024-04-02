@@ -1,7 +1,10 @@
 package playGame;
 
+import java.util.Random;
+import java.util.Vector;
+
 public class Player extends Unit {
-	
+	private Random ran = new Random();
 	private String WARRIOR = "전사";
 	private String WIZARD = "마법사";
 	private String HEALER = "힐러";
@@ -11,19 +14,36 @@ public class Player extends Unit {
 	}
 
 	@Override
-	public void skill(Unit target) {
+	public void skill(Vector<Unit> list) {
 		if(this.name.equals(WARRIOR)) {
-			superAttack(target);
+			superAttack(list);
 		}
 		else if(this.name.equals(WIZARD)) {
-//			meteo();
+			meteo(list);
 		}
 		else if(this.name.equals(HEALER)) {
-//			heal();
+//			heal(list);
 		}
 	}
 	
-	private void superAttack(Unit target) {
+	private void superAttack(Vector<Unit> list) {
+		while(true) {
+			int idx = ran.nextInt(list.size());
+			Unit target = list.get(idx);
+			if(target.getCurhp() > 0) {
+				target.curhp -= power *2;
+				System.out.printf("[%s]의 스킬 발동!\n", name);
+				System.out.printf("[%s]이 [%s]에게 %d의 데미지를 두번 입힙니다.\n", name, target.name, power);
+				if(target.curhp <= 0) {
+					System.out.printf("[%s]이 [%s]을 쓰러뜨렸습니다.\n", name, target.name);
+					target.curhp = 0;
+				}
+				break;
+			}
+		}
+	}
+	
+	private void meteo(Vector<Unit> monList) {
 		target.curhp -= power *2;
 		System.out.printf("[%s]의 스킬 발동!\n", name);
 		System.out.printf("[%s]이 [%s]에게 %d의 데미지를 두번 입힙니다.\n", name, target.name, power);
