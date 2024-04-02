@@ -1,5 +1,7 @@
 package playGame;
 
+import java.util.Vector;
+
 public class UnitOrc extends Unit {
 	
 	public UnitOrc() {
@@ -7,7 +9,7 @@ public class UnitOrc extends Unit {
 	}
 
 	@Override
-	public void skill(Unit target) {
+	public void skill(Vector<Unit> list) {
 		System.out.println("한명에게 2배의 데미지 + 기절");
 		
 	}

@@ -1,5 +1,7 @@
 package playGame;
 
+import java.util.Vector;
+
 public class UnitWolf extends Unit {
 	
 	public UnitWolf() {
@@ -7,7 +9,7 @@ public class UnitWolf extends Unit {
 	}
 
 	@Override
-	public void skill(Unit target) {
+	public void skill(Vector<Unit> list) {
 		System.out.println("적 전체에게 공격력의 절반 데미지");
 		
 	}

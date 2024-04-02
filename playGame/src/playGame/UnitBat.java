@@ -1,5 +1,7 @@
 package playGame;
 
+import java.util.Vector;
+
 public class UnitBat extends Unit {
 	
 	public UnitBat() {
@@ -7,7 +9,7 @@ public class UnitBat extends Unit {
 	}
 
 	@Override
-	public void skill(Unit target) {
+	public void skill(Vector<Unit> list) {
 		System.out.println("적 한명에게 침묵 시전");
 		
 	}
