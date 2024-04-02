@@ -10,6 +10,7 @@ public class StageBattle extends Stage {
 	private Random ran = new Random();
 	private int monDead = 0;
 	private int playerDead = 0;
+	
 	private final int ATTACK = 1;
 	private final int SKILL = 2;
 	
@@ -48,7 +49,7 @@ public class StageBattle extends Stage {
 		return false;
 	}
 	@Override
-	public void init() {
+	public void setStage() {
 		unitManager.monster_list.clear();
 		unitManager.monsterRandomSet(4);
 		playerList = null;
@@ -75,8 +76,9 @@ public class StageBattle extends Stage {
 		Player player = playerList.get(index);
 		if(player.getCurhp() <= 0)
 			return;
+		
 		System.out.println("=====[메뉴 선택]=====");
-		System.out.printf("[%s][1.어택][2.스킬]");
+		System.out.printf("[%s][1.어택][2.스킬]\n", player.name);
 		int sel = GameManager.scan.nextInt();
 		
 		if(sel == ATTACK) {
@@ -89,7 +91,7 @@ public class StageBattle extends Stage {
 				}
 			}
 		} else if(sel == SKILL) {
-		
+			player.skill(monList, playerList);
 		}
 	}
 	
