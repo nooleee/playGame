@@ -1,7 +1,7 @@
 package playGame;
 
 public abstract class Stage {
-	public abstract boolean updatae();
+	public abstract boolean update();
 	
-//	public abstract void 
+	public abstract void init();
 }
