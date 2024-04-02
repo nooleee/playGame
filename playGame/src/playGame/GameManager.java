@@ -20,4 +20,28 @@ public class GameManager {
 		nextStage = "TITLE";
 	}
 	
+	private boolean changeStage() {
+		System.out.println("curStage : " + curStage);
+		System.out.println("nextStage : " + nextStage);
+		
+		if(curStage.equals(nextStage))
+			return true;
+		curStage = nextStage;
+		Stage stage = stageList.get(curStage);
+		
+//		stage.???
+		boolean run = true;
+		while(true) {
+			run = stage.updatae();
+			if(run == false)
+				break;
+		}
+		
+		if(nextStage.equals(""))
+			return false;
+		else
+			return true;
+		
+	}
+	
 }
