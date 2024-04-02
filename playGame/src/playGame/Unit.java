@@ -7,6 +7,17 @@ public abstract class Unit {
 	private String name;
 	private String state = "노말";
 	
+	public Unit() {
+		
+	}
+	
+	public Unit(String name, int maxHp, int power) {
+		this.name = name;
+		this.hp = maxHp;
+		this.maxHp = maxHp;
+		this.power = power;
+	}
+	
 
 	
 }
