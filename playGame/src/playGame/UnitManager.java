@@ -4,8 +4,8 @@ import java.util.Random;
 import java.util.Vector;
 
 public class UnitManager {
-	private	Vector<Player> player_list = new Vector<>();
-	private Vector<Unit> monster_list = new Vector<>();
+	public	Vector<Player> player_list = new Vector<>();
+	public Vector<Unit> monster_list = new Vector<>();
 	private String path = "";
 	private String[] mons = {"UnitWolf", "UnitBat", "UnitOrc"};
 	private Random ran = new Random();
@@ -16,7 +16,7 @@ public class UnitManager {
 		player_list.add(new Player("힐러", 500, 70));
 	}
 	
-	private void monsterRandomSet(int size) {
+	public void monsterRandomSet(int size) {
 		for(int i = 0; i < size; i++) {
 			int num = ran.nextInt(mons.length);
 			try {
