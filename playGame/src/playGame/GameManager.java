@@ -20,7 +20,7 @@ public class GameManager {
 		nextStage = "TITLE";
 	}
 	
-	private boolean changeStage() {
+	public boolean changeStage() {
 		System.out.println("curStage : " + curStage);
 		System.out.println("nextStage : " + nextStage);
 		
@@ -29,7 +29,7 @@ public class GameManager {
 		curStage = nextStage;
 		Stage stage = stageList.get(curStage);
 		
-//		stage.???
+//		stage.init();
 		boolean run = true;
 		while(true) {
 			run = stage.updatae();
