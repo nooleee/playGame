@@ -34,6 +34,10 @@ public abstract class Unit {
 		return this.name;
 	}
 	
+	public int getCurhp() {
+		return this.curhp;
+	}
+	
 	
 	
 	public void attack(Unit target) {
