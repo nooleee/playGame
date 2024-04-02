@@ -65,7 +65,21 @@ public class StageBattle extends Stage {
 				}
 			}
 		} else if(sel == SKILL) {
-			
+		
+		}
+	}
+	
+	public void monsterAttack(int index) {
+		Unit monster = monList.get(index);
+		if(monster.getCurhp() <= 0) 
+			return;
+		
+		while(true) {
+			int idx = ran.nextInt(playerList.size());
+			if(playerList.get(idx).getCurhp() > 0) {
+				monster.attack(playerList.get(idx));
+				break;
+			}
 		}
 	}
 	
