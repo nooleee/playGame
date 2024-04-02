@@ -23,6 +23,17 @@ public abstract class Unit {
 		this.power = power;
 	}
 	
+	public void setPlayer(String name, int maxhp, int power) {
+		this.name = name;
+		this.curhp = maxhp;
+		this.maxhp = maxhp;
+		this.power = power;
+	}
+	
+	public String getName() {
+		return this.name;
+	}
+	
 	
 	
 	public void attack(Unit target) {
