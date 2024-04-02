@@ -18,6 +18,12 @@ public abstract class Unit {
 		this.power = power;
 	}
 	
+	public void setMonster(int maxHp, int power) {
+		this.maxHp = maxHp;
+		this.power = power;
+	}
+	
+	
 
 	
 }
