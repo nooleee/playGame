@@ -41,7 +41,7 @@
 
 >Class Diagram (UML)
 >
-![diagram](https://github.com/nooleee/playGame/blob/master/image/playGame.jpg?raw=true) <br>
+![diagram](https://github.com/nooleee/playGame/blob/master/image/playGame2.jpg?raw=true) <br>
 
 > Demo
 > 
