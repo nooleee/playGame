@@ -30,6 +30,7 @@
 <br>
 <br>
 플레이어의 캐릭터가 전부 죽거나 게임을 종료하는 버튼을 누르면 게임은 종료된다.
+<br>
 
 
 
@@ -40,7 +41,7 @@
 
 >Class Diagram (UML)
 >
-![diagram]() <br>
+![diagram](https://github.com/nooleee/playGame/blob/master/image/playGame.jpg?raw=true) <br>
 
 > Demo
 > 
