@@ -9,7 +9,7 @@ public class StageSetting extends Stage {
 	}
 
 	@Override
-	public void init() {
+	public void setStage() {
 		// TODO Auto-generated method stub
 		
 	}

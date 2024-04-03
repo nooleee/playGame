@@ -6,7 +6,7 @@ import java.util.Vector;
 public class UnitManager {
 	public	Vector<Player> player_list = new Vector<>();
 	public Vector<Unit> monster_list = new Vector<>();
-	private String path = "";
+	private String path = "playGame.";
 	private String[] mons = {"UnitWolf", "UnitBat", "UnitOrc"};
 	private Random ran = new Random();
 	

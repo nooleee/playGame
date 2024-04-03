@@ -13,9 +13,9 @@ public class GameManager {
 	Map<String, Stage> stageList = new HashMap<String, Stage>();
 	
 	public GameManager() {
-//		stageList.put("TITLE", new StageTitle());
-//		stageList.put("BATTLE", new StageBattle());
-//		stageList.put("LOBBY", new StageLobby());
+		stageList.put("TITLE", new StageTitle());
+		stageList.put("BATTLE", new StageBattle());
+		stageList.put("LOBBY", new StageLobby());
 		
 		nextStage = "TITLE";
 	}
@@ -29,10 +29,10 @@ public class GameManager {
 		curStage = nextStage;
 		Stage stage = stageList.get(curStage);
 		
-//		stage.init();
+		stage.setStage();
 		boolean run = true;
 		while(true) {
-			run = stage.updatae();
+			run = stage.update();
 			if(run == false)
 				break;
 		}
