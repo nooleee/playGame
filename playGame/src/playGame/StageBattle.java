@@ -48,6 +48,7 @@ public class StageBattle extends Stage {
 		GameManager.nextStage = "LOBBY";
 		return false;
 	}
+	
 	@Override
 	public void setStage() {
 		unitManager.monster_list.clear();
@@ -102,9 +103,16 @@ public class StageBattle extends Stage {
 		
 		while(true) {
 			int idx = ran.nextInt(playerList.size());
+			int rNum = ran.nextInt(4) + 1;
 			if(playerList.get(idx).getCurhp() > 0) {
-				monster.attack(playerList.get(idx));
-				break;
+				if(rNum == SKILL) {
+					monster.skill(monList, playerList);
+					break;
+				}
+				else {
+					monster.attack(playerList.get(idx));
+					break;
+				}
 			}
 		}
 	}
