@@ -18,9 +18,9 @@ public class UnitBat extends Unit {
 			target.curhp -= power;
 			this.curhp += power / 2;
 			System.out.printf("[%s]의 스킬 발동!\n", name);
-			System.out.printf("[%s]가 [%s]에게 %d만큼의 피해를 입히고 피해량의 절반을 회복합니다.", name, target.name, power);
+			System.out.printf("[%s]가 [%s]에게 %d만큼의 피해를 입히고 피해량의 절반을 회복합니다.\n", name, target.name, power);
 			if(target.curhp <= 0) {
-				System.out.printf("[%s]이 [%s]을 쓰러뜨렸습니다.\n", name, target.name);
+				System.out.printf("[%s]가 [%s]을 쓰러뜨렸습니다.\n", name, target.name);
 				target.curhp = 0;
 			}
 		}
