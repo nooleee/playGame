@@ -31,20 +31,4 @@ public class Item {
 	public String getName() {
 		return this.name;
 	}
-	
-	public void setKind(int kind) {
-		this.kind = kind;
-	}
-	
-	public void setName(String name) {
-		this.name = name;
-	}
-	
-	public void setPower(int power) {
-		this.power = power;
-	}
-	
-	public void setPrice(int price) {
-		this.price = price;
-	}
 }
