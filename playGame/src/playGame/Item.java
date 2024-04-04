@@ -35,4 +35,8 @@ public class Item {
 	public void setKind(int kind) {
 		this.kind = kind;
 	}
+	
+	public void setName(String name) {
+		this.name = name;
+	}
 }
