@@ -23,4 +23,8 @@ public class Item {
 	public int getPower() {
 		return this.power;
 	}
+	
+	public int getPrice() {
+		return this.price;
+	}
 }
