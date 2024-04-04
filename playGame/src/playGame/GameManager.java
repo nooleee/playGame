@@ -10,12 +10,13 @@ public class GameManager {
 	public static Scanner scan = new Scanner(System.in);
 	public static String nextStage = "";
 	private String curStage = "";
-	Map<String, Stage> stageList = new HashMap<String, Stage>();
+	private Map<String, Stage> stageList = new HashMap<String, Stage>();
 	
 	public GameManager() {
 		stageList.put("TITLE", new StageTitle());
 		stageList.put("BATTLE", new StageBattle());
 		stageList.put("LOBBY", new StageLobby());
+		stageList.put("SETTING", new StageSetting());
 		
 		nextStage = "TITLE";
 	}
