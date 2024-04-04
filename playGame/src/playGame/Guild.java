@@ -47,5 +47,9 @@ public class Guild {
 		guildList.get(sel).printStatus();
 	}
 	
+	public void printUnitItem(int sel) {
+		guildList.get(sel).printEquitedItem();
+	}
+	
 	
 }
