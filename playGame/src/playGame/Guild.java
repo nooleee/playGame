@@ -94,14 +94,14 @@ public class Guild {
 		int attack = rNum * 7 + 5;
 		int def = rNum * 10 / 2;
 		
-		System.out.println("=====================================");
+		System.out.println("===============================");
 		System.out.printf("[이름 : %s]",name);
 		System.out.print(" [레벨 : 1]");
 		System.out.printf(" [체력 : %d / %d]\n", hp, hp);
 		System.out.printf("[공격력 : %d]",attack);
 		System.out.printf(" [방어력 : %d\n",def);
 		System.out.println("길드원을 추가합니다.");
-		System.out.println("=====================================");
+		System.out.println("===============================");
 		
 		
 		Warrior temp1 = new Warrior(name, 1, hp, attack, def, 0);
@@ -114,7 +114,22 @@ public class Guild {
 		
 		guildList.add(type[rNum]);
 		Player.money -= 5000;
+	}
+	
+	public void removeUnit() {
+		printAllUnitStatus();
+		System.out.println("삭제할 번호를 입력하세요.");
+		int sel = GameManager.scan.nextInt() - 1;
 		
+		if(guildList.get(sel).party)
+			System.out.println("파티중인 멤버는 삭제할 수 없습니다.");
+		else {
+			System.out.println("===============================");
+			System.out.printf("[이름 : %s]\n", guildList.get(sel).name);
+			System.out.println("길드원을 삭제합니다.");
+			System.out.println("===============================");
+			guildList.remove(sel);
+		}
 	}
 	
 }
