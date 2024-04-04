@@ -19,4 +19,8 @@ public class Item {
 	public int getKind() {
 		return this.kind;
 	}
+	
+	public int getPower() {
+		return this.power;
+	}
 }
