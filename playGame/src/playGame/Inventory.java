@@ -100,4 +100,8 @@ public class Inventory {
 	public void addItem(Item item) {
 		itemList.add(item);
 	}
+	
+	public ArrayList<Item> getItemList() {
+		return this.itemList;
+	}
 }
