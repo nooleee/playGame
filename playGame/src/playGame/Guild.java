@@ -9,5 +9,7 @@ public class Guild {
 	private Random ran = new Random();
 	private Unit[] partyList;
 	
-	
+	private void setGuild() {
+//		guildList.add(new Warrior("전사", 5, 1000, 45, 45, 0));
+	}
 }
