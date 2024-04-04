@@ -17,12 +17,37 @@ public class Inventory {
 			if(sel < 0 || sel > 2)
 				return;
 			
-			if (sel == 0)
-				break;
-			if (sel == WEAR) {}
-//	          equipMenu();
-			else if (sel == SELL) {}
+			if (sel == WEAR)
+	          equipMenu();
+	        else if (sel == SELL) {}
 //	          sellMenu();
+			else if (sel == 0)
+				break;
+		}
+	}
+	
+	private void equipMenu() {
+		Guild guild = Player.guild;
+		guild.printAllUnitStatus();
+		System.out.println("아이템을 착용 할 길드원을 선택하세요.");
+		int sel = GameManager.scan.nextInt() - 1;
+		
+		
+		if(sel < 0 || sel > Player.getGuildSize())
+			return;
+		
+		guild.printUnitStatus(sel);
+		guild.printUnitItem(sel);
+		printItemList();
+		
+	}
+	
+	private void printItemList() {
+		System.out.println("========[아이템 리스트]========");
+		for(int i = 0; i < itemList.size(); i++) {
+			Item target = itemList.get(i);
+			String info = String.format("[%d번][이름 : %s][능력 : %d][가격 : %d]\n", i+1, target.getName(), target.getPower(), target.getPrice());
+			System.out.println(info);
 		}
 	}
 }
