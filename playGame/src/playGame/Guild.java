@@ -43,5 +43,9 @@ public class Guild {
 		}
 	}
 	
+	public void printUnitStatus(int sel) {
+		guildList.get(sel).printStatus();
+	}
+	
 	
 }
