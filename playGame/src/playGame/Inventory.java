@@ -96,4 +96,8 @@ public class Inventory {
 			itemList.remove(sel);
 		}
 	}
+	
+	public void addItem(Item item) {
+		itemList.add(item);
+	}
 }
