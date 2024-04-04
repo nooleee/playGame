@@ -5,17 +5,52 @@ public abstract class Unit {
 	protected int maxhp;
 	protected int power;
 	protected String name;
+	protected int level;
+	protected int def;
+	protected int exp;
+	protected boolean party;
+	protected Item weapon;
+	protected Item armor;
+	protected Item ring;
 	private String state = "노말";
 	
 	public Unit() {
 		
 	}
 	
-	public Unit(String name, int maxHp, int power) {
+	public Unit(String name, int level,  int maxHp, int power, int def, int exp) {
 		this.name = name;
 		this.curhp = maxHp;
 		this.maxhp = maxHp;
 		this.power = power;
+		this.level = level;
+		this.def = def;
+		this.exp = exp;
+		this.party = false;
+		this.weapon = null;
+		this.armor = null;
+		this.ring = null;
+	}
+	
+	public Unit(String name, int level,  int maxHp, int power, int def, int exp, boolean party) {
+		super();
+		this.name = name;
+		this.curhp = maxHp;
+		this.maxhp = maxHp;
+		this.power = power;
+		this.level = level;
+		this.def = def;
+		this.exp = exp;
+		this.party = party;
+		this.weapon = null;
+		this.armor = null;
+		this.ring = null;
+	}
+	
+	public void setItem(Item weapon, Item armor, Item ring) {
+		this.weapon = weapon;
+		this.armor = armor;
+		this.ring = ring;
 	}
 	
 	public void setMonster(int maxHp, int power) {
@@ -37,6 +72,28 @@ public abstract class Unit {
 	
 	public int getCurhp() {
 		return this.curhp;
+	}
+	
+	public void printStatus() {
+		System.out.printf("[이름 : %s]", name);
+		System.out.printf("[레벨 : %s]", level);
+		
+		if(ring != null)
+			System.out.printf("[체력 : %d + %d / %d + %d]\n", curhp, ring.power, maxhp, ring.power);
+		else 
+			System.out.printf("[체력 : %d / %d]\n", curhp, maxhp);
+		
+		if(weapon != null)
+			System.out.printf("[공격력 : %d + %d]", power, weapon.power);
+		else
+			System.out.printf("[공격력 : %d]", power);
+		
+		if(armor != null)
+			System.out.printf("[방어력 : %d + %d]", def, armor.power);
+		else
+			System.out.printf("[방어력 : %d]", def);
+		
+		System.out.printf("[파티중 : %s]", party);
 	}
 	
 	
