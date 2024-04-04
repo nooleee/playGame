@@ -96,7 +96,22 @@ public abstract class Unit {
 		System.out.printf("[파티중 : %s]", party);
 	}
 	
-	
+	public void printEquitedItem() {
+		if(weapon == null)
+			System.out.println("[무기 : 없음]");
+		else
+			System.out.printf("[무기 : %s]\n", weapon.name);
+		
+		if(armor == null)
+			System.out.println("[방어구 : 없음]");
+		else
+			System.out.printf("[방어구 : %s]\n", armor.name);
+		
+		if(ring == null)
+			System.out.println("[반지 : 없음]");
+		else
+			System.out.printf("[반지 : %s]\n", ring.name);
+	}
 	
 	public void attack(Monster monster) {
 		monster.curhp -= power;
