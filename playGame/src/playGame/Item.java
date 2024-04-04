@@ -27,4 +27,8 @@ public class Item {
 	public int getPrice() {
 		return this.price;
 	}
+	
+	public String getName() {
+		return this.name;
+	}
 }
