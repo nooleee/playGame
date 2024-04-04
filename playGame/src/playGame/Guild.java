@@ -31,4 +31,17 @@ public class Guild {
 	public Player getGuildUnit(int num) {
 		return guildList.get(num);
 	}
+	
+	public void printAllUnitStatus() {
+		System.out.println("===============");
+		System.out.printf("[골드 : %d]\n", Player.money);
+		System.out.println("===============");
+		for(int i = 0; i < guildList.size(); i++) {
+			Unit target = guildList.get(i);
+			System.out.printf("[%d번]", i+1);
+			target.printStatus();
+		}
+	}
+	
+	
 }
