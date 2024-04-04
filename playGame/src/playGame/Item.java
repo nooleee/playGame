@@ -15,4 +15,8 @@ public class Item {
 		this.power = power;
 		this.price = price;
 	}
+	
+	public int getKind() {
+		return this.kind;
+	}
 }
