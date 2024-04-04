@@ -11,9 +11,9 @@ public class UnitManager {
 	private Random ran = new Random();
 	
 	public UnitManager() {
-		player_list.add(new Warrior("전사", 1000, 45));
-		player_list.add(new Wizard("마법사", 800, 60));
-		player_list.add(new Healer("힐러", 500, 70));
+		player_list.add(new Warrior("전사", 5, 1000, 45, 45, 0));
+		player_list.add(new Wizard("마법사", 8, 800, 60, 30, 0));
+		player_list.add(new Healer("힐러", 3, 500, 70, 30, 0));
 	}
 	
 	public void monsterRandomSet(int size) {
