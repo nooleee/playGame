@@ -64,16 +64,20 @@ public class Guild {
 			System.out.println("[1.길드 목록]\t\t[2.길드원 추가]\t\t[3.길드원 삭제]");
 			System.out.println("[4.파티원 교체]\t\t\t[0.종료]");
 			int sel = GameManager.scan.nextInt();
+			
+			if(sel < 0 || sel > 4)
+				return;
+			
 			if(sel == SHOW_GUILD)
 				printAllUnitStatus();
 			else if(sel == ADD)
 				buyUnit();
-//			else if(sel == DELETE)
-//				remaveUint();
-//			else if(sel == CHANGE)
-//				partyChange();
-//			else if(sel == BACK)
-//				break;
+			else if(sel == DELETE)
+				removeUnit();
+			else if(sel == CHANGE)
+				partyChange();
+			else if(sel == BACK)
+				break;
 		}
 	}
 	
@@ -121,6 +125,9 @@ public class Guild {
 		System.out.println("삭제할 번호를 입력하세요.");
 		int sel = GameManager.scan.nextInt() - 1;
 		
+		if(sel < 0 || sel > guildList.size())
+			return;
+		
 		if(guildList.get(sel).party)
 			System.out.println("파티중인 멤버는 삭제할 수 없습니다.");
 		else {
@@ -130,6 +137,46 @@ public class Guild {
 			System.out.println("===============================");
 			guildList.remove(sel);
 		}
+	}
+	
+	public void printParty() {
+		System.out.println("=============[파티원]============");
+		for(int i = 0; i < partyList.length; i++) {
+			Unit target = partyList[i];
+			System.out.printf("[%d]\n", i+1);
+			target.printStatus();
+		}
+		System.out.println("===============================");
+	}
+	
+	public void partyChange() {
+		printParty();
+		System.out.println("교체할 파티원의 번호를 선택하세요.");
+		int sel = GameManager.scan.nextInt() - 1;
+		
+		if(sel < 0 || sel > partyList.length)
+			return;
+		
+		printAllUnitStatus();
+		System.out.println("참가할 유닛의 번호를 선택하세요");
+		int cNum = GameManager.scan.nextInt() - 1;
+		
+		if(guildList.get(cNum).party) {
+			System.out.println("이미 참가중인 파티원입니다.");
+			return;
+		}
+		
+		partyList[sel].party = false;
+		guildList.get(cNum).party = true;
+		
+		int cnt = 0;
+		for(int i = 0 ; i < guildList.size(); i++) {
+			Player target = guildList.get(i);
+			if(target.party) 
+				partyList[cnt ++] = target;
+		}
+		
+		
 	}
 	
 }
