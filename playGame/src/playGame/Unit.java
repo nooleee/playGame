@@ -79,38 +79,38 @@ public abstract class Unit {
 		System.out.printf("[레벨 : %s]", level);
 		
 		if(ring != null)
-			System.out.printf("[체력 : %d + %d / %d + %d]\n", curhp, ring.power, maxhp, ring.power);
+			System.out.printf("[체력 : %d + %d / %d + %d]\n", curhp, ring.getPower(), maxhp, ring.getPower());
 		else 
 			System.out.printf("[체력 : %d / %d]\n", curhp, maxhp);
 		
 		if(weapon != null)
-			System.out.printf("[공격력 : %d + %d]", power, weapon.power);
+			System.out.printf("[공격력 : %d + %d]", power, weapon.getPower());
 		else
 			System.out.printf("[공격력 : %d]", power);
 		
 		if(armor != null)
-			System.out.printf("[방어력 : %d + %d]", def, armor.power);
+			System.out.printf("[방어력 : %d + %d]", def, armor.getPower());
 		else
 			System.out.printf("[방어력 : %d]", def);
 		
-		System.out.printf("[파티중 : %s]", party);
+		System.out.printf("[파티중 : %s]\n", party);
 	}
 	
 	public void printEquitedItem() {
 		if(weapon == null)
 			System.out.println("[무기 : 없음]");
 		else
-			System.out.printf("[무기 : %s]\n", weapon.name);
+			System.out.printf("[무기 : %s]\n", weapon.getName());
 		
 		if(armor == null)
 			System.out.println("[방어구 : 없음]");
 		else
-			System.out.printf("[방어구 : %s]\n", armor.name);
+			System.out.printf("[방어구 : %s]\n", armor.getName());
 		
 		if(ring == null)
 			System.out.println("[반지 : 없음]");
 		else
-			System.out.printf("[반지 : %s]\n", ring.name);
+			System.out.printf("[반지 : %s]\n", ring.getName());
 	}
 	
 	public void attack(Monster monster) {
