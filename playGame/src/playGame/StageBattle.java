@@ -6,7 +6,7 @@ import java.util.Vector;
 public class StageBattle extends Stage {
 	private UnitManager unitManager = new UnitManager();
 	private Vector<Player> playerList;
-	private Vector<Unit> monList;
+	private Vector<Monster> monList;
 	private Random ran = new Random();
 	private int monDead = 0;
 	private int playerDead = 0;
@@ -97,7 +97,7 @@ public class StageBattle extends Stage {
 	}
 	
 	public void monsterAttack(int index) {
-		Unit monster = monList.get(index);
+		Monster monster = monList.get(index);
 		if(monster.getCurhp() <= 0) 
 			return;
 		
@@ -106,7 +106,7 @@ public class StageBattle extends Stage {
 			int rNum = ran.nextInt(4) + 1;
 			if(playerList.get(idx).getCurhp() > 0) {
 				if(rNum == SKILL) {
-					monster.skill(monList, playerList);
+					monster.skill(playerList);
 					break;
 				}
 				else {
