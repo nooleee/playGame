@@ -19,8 +19,8 @@ public class Inventory {
 			
 			if (sel == WEAR)
 	          equipMenu();
-	        else if (sel == SELL) {}
-//	          sellMenu();
+	        else if (sel == SELL) 
+	          sellMenu();
 			else if (sel == 0)
 				break;
 		}
@@ -75,6 +75,25 @@ public class Inventory {
 			Item target = itemList.get(i);
 			String info = String.format("[%d번][이름 : %s][능력 : %d][가격 : %d]\n", i+1, target.getName(), target.getPower(), target.getPrice());
 			System.out.println(info);
+		}
+	}
+	
+	private void sellMenu() {
+		while(true) {
+			printItemList();
+			System.out.printf("[골드 : %d]\n", Player.money);
+			System.out.println("판매할 아이템 번호를 입력하세요(50%세금)[0.뒤로가기]");
+			int sel = GameManager.scan.nextInt() - 1;
+			
+			if(sel < 0 || sel > itemList.size())
+				continue;
+			if(sel == 0)
+				break;
+			
+			System.out.printf("[%s]를(을) 판매합니다\n", itemList.get(sel).getName());
+			
+			Player.money += itemList.get(sel).getPrice() / 2;
+			itemList.remove(sel);
 		}
 	}
 }
