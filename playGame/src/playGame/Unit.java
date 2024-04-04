@@ -1,7 +1,5 @@
 package playGame;
 
-import java.util.Vector;
-
 public abstract class Unit {
 	protected int curhp;
 	protected int maxhp;
@@ -43,12 +41,12 @@ public abstract class Unit {
 	
 	
 	
-	public void attack(Unit target) {
-		target.curhp -= power;
-		System.out.printf("[%s]이 [%s]에게 %d의 데미지를 입힙니다.\n", name, target.name, power);
-		if(target.curhp <= 0) {
-			System.out.printf("[%s]이 [%s]을 쓰러뜨렸습니다.\n", name, target.name);
-			target.curhp = 0;
+	public void attack(Monster monster) {
+		monster.curhp -= power;
+		System.out.printf("[%s]이 [%s]에게 %d의 데미지를 입힙니다.\n", name, monster.name, power);
+		if(monster.curhp <= 0) {
+			System.out.printf("[%s]이 [%s]을 쓰러뜨렸습니다.\n", name, monster.name);
+			monster.curhp = 0;
 		}
 	}
 	
@@ -56,6 +54,6 @@ public abstract class Unit {
 		System.out.printf("[%s][%d/%d][%d]\n", name, curhp, maxhp, power);
 	}
 	
-	public abstract void skill(Vector<Unit> monList, Vector<Player> playerList);
+
 	
 }

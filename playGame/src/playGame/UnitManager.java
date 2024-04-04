@@ -5,15 +5,15 @@ import java.util.Vector;
 
 public class UnitManager {
 	public	Vector<Player> player_list = new Vector<>();
-	public Vector<Unit> monster_list = new Vector<>();
+	public Vector<Monster> monster_list = new Vector<>();
 	private String path = "playGame.";
-	private String[] mons = {"UnitWolf", "UnitBat", "UnitOrc"};
+	private String[] mons = {"MonsterWolf", "MonsterBat", "MonsterOrc"};
 	private Random ran = new Random();
 	
 	public UnitManager() {
-		player_list.add(new Player("전사", 1000, 45));
-		player_list.add(new Player("마법사", 800, 60));
-		player_list.add(new Player("힐러", 500, 70));
+		player_list.add(new Warrior("전사", 1000, 45));
+		player_list.add(new Wizard("마법사", 800, 60));
+		player_list.add(new Healer("힐러", 500, 70));
 	}
 	
 	public void monsterRandomSet(int size) {
@@ -22,7 +22,7 @@ public class UnitManager {
 			try {
 				Class<?> clazz = Class.forName(path + mons[num]);
 				Object obj = clazz.getDeclaredConstructor().newInstance();
-				Unit temp = (Unit) obj;
+				Monster temp = (Monster) obj;
 				int hp = ran.nextInt(100) + 100;
 				int power = ran.nextInt(10) + 10;
 				temp.setMonster(hp, power);
