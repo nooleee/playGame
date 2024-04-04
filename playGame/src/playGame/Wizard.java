@@ -4,8 +4,8 @@ import java.util.Vector;
 
 public class Wizard extends Player {
 
-	public Wizard(String name, int maxHp, int power) {
-		super(name, maxHp, power);
+	public Wizard(String name, int level,  int maxHp, int power, int def, int exp) {
+		super(name, level, maxHp, power, def, exp);
 	}
 
 	@Override

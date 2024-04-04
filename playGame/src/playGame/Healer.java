@@ -4,8 +4,8 @@ import java.util.Vector;
 
 public class Healer extends Player {
 
-	public Healer(String name, int maxHp, int power) {
-		super(name, maxHp, power);
+	public Healer(String name, int level,  int maxHp, int power, int def, int exp) {
+		super(name, level, maxHp, power, def, exp);
 	}
 
 	@Override
