@@ -43,4 +43,8 @@ public class Item {
 	public void setPower(int power) {
 		this.power = power;
 	}
+	
+	public void setPrice(int price) {
+		this.price = price;
+	}
 }
