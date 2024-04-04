@@ -175,8 +175,10 @@ public class Guild {
 			if(target.party) 
 				partyList[cnt ++] = target;
 		}
-		
-		
+	}
+	
+	public Vector<Player> getGuildList() {
+		return guildList;
 	}
 	
 }
