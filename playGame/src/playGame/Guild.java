@@ -9,7 +9,7 @@ public class Guild {
 	private Random ran = new Random();
 	private Unit[] partyList;
 	
-	private void setGuild() {
+	public void setGuild() {
 		guildList.add(new Warrior("전사", 5, 1000, 45, 45, 0));
 		guildList.add(new Wizard("마법사", 8, 800, 60, 30, 0));
 		guildList.add(new Healer("힐러", 3, 500, 70, 30, 0));
@@ -26,5 +26,9 @@ public class Guild {
 			if(target.party) 
 				partyList[cnt ++] = target;
 		}
+	}
+	
+	public Player getGuildUnit(int num) {
+		return guildList.get(num);
 	}
 }
