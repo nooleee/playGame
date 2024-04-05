@@ -94,7 +94,7 @@ public class Guild {
 		name += random3[ran.nextInt(random3.length)];
 		
 		int rNum = ran.nextInt(8) + 2;
-		int hp = rNum * 11;
+		int hp = rNum * 100;
 		int attack = rNum * 7 + 5;
 		int def = rNum * 10 / 2;
 		
