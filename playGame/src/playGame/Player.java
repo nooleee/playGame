@@ -5,15 +5,16 @@ import java.util.Vector;
 
 public abstract class Player extends Unit {
 	
-	public static int money;
+	public static int money = 10000;
 	
 	public static Guild guild = new Guild();
 	public static Inventory inven = new Inventory();
 	
-	private void setPlayer() {
-		money = 10000;
+	public void setPlayer() {
 		guild.setGuild();
 	}
+	
+	public Player() {};
 	
 	public Player(String name, int level,  int maxHp, int power, int def, int exp) {
 		super(name, level, maxHp, power, def, exp);
