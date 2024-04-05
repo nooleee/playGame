@@ -4,8 +4,8 @@ import java.util.Random;
 import java.util.Vector;
 
 public class Warrior extends Player {
-	public Warrior(String name, int level,  int maxHp, int power, int def, int exp) {
-		super(name, level, maxHp, power, def, exp);
+	public Warrior(String name, int level,  int maxHp, int power, int def) {
+		super(name, level, maxHp, power, def);
 	}
 
 	private Random ran = new Random();

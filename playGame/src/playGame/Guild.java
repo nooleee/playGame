@@ -16,9 +16,9 @@ public class Guild {
 	private final int BACK = 0;
 	
 	public void setGuild() {
-		guildList.add(new Warrior("전사", 5, 1000, 45, 45, 0));
-		guildList.add(new Wizard("마법사", 8, 800, 60, 30, 0));
-		guildList.add(new Healer("힐러", 3, 500, 70, 30, 0));
+		guildList.add(new Warrior("전사", 5, 1000, 45, 45));
+		guildList.add(new Wizard("마법사", 8, 800, 60, 30));
+		guildList.add(new Healer("힐러", 3, 500, 70, 30));
 		
 		for(int i = 0; i < SIZE; i++) {
 			guildList.get(i).party = true;
@@ -108,9 +108,9 @@ public class Guild {
 		System.out.println("===============================");
 		
 		
-		Warrior temp1 = new Warrior(name, 1, hp, attack, def, 0);
-		Wizard temp2 = new Wizard(name, 1, hp, attack, def, 0);
-		Healer temp3 = new Healer(name, 1, hp, attack, def, 0);
+		Warrior temp1 = new Warrior(name, 1, hp, attack, def);
+		Wizard temp2 = new Wizard(name, 1, hp, attack, def);
+		Healer temp3 = new Healer(name, 1, hp, attack, def);
 		
 		Player[] type = {temp1, temp2, temp3};
 		
