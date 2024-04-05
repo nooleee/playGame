@@ -83,17 +83,17 @@ public class Inventory {
 			printItemList();
 			System.out.printf("[골드 : %d]\n", Player.money);
 			System.out.println("판매할 아이템 번호를 입력하세요(50%세금)[0.뒤로가기]");
-			int sel = GameManager.scan.nextInt() - 1;
+			int sel = GameManager.scan.nextInt();
 			
 			if(sel < 0 || sel > itemList.size())
 				continue;
 			if(sel == 0)
 				break;
 			
-			System.out.printf("[%s]를(을) 판매합니다\n", itemList.get(sel).getName());
+			System.out.printf("[%s]를(을) 판매합니다\n", itemList.get(sel-1).getName());
 			
-			Player.money += itemList.get(sel).getPrice() / 2;
-			itemList.remove(sel);
+			Player.money += itemList.get(sel-1).getPrice() / 2;
+			itemList.remove(sel-1);
 		}
 	}
 	

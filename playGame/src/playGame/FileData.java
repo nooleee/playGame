@@ -42,6 +42,7 @@ public class FileData {
 		gameData += writeEquipment(info);
 		
 		gameData += Player.getItemSize();
+		System.out.println(Player.getItemSize());
 		gameData += "\n";
 		
 		gameData += writeItemData();
@@ -89,9 +90,14 @@ public class FileData {
 	
 	private String writeItemData() {
 		String data = "";
+		
+		if(Player.getItemSize() == 0)
+			return data;
+		
 		for(int i = 0; i < Player.getItemSize(); i++) {
 			Item item = Player.getItemList().get(i);
-			data = String.format("%d/%s/%d/%d\n", item.getKind(), item.getName(), item.getPower(), item.getPrice());
+			String itemData = String.format("%d/%s/%d/%d\n", item.getKind(), item.getName(), item.getPower(), item.getPrice());
+			data += itemData;
 		}
 		data = data.substring(0, data.length()-1);
 		return data;

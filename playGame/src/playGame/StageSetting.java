@@ -6,6 +6,7 @@ public class StageSetting extends Stage {
 	private Random ran = new Random();
 	private UnitManager unitManager = null;
 	private Shop shop;
+	private FileData fileData;
 	
 	
 	private final int GUILD = 1;
@@ -31,8 +32,16 @@ public class StageSetting extends Stage {
 				shop.shopMenu();
 			else if(sel == INVEN)
 				Player.inven.inventoryMenu();
-			else if(sel == SAVE) {}
-			else if(sel == LOAD) {}
+			else if(sel == SAVE) {
+				fileData.saveData();
+			}
+			else if(sel == LOAD) {
+				try {
+					
+				} catch (Exception e) {
+					// TODO: handle exception
+				}
+			}
 			else if(sel == 0) {
 				GameManager.nextStage = "LOBBY";
 				break;
@@ -45,6 +54,7 @@ public class StageSetting extends Stage {
 	public void setStage() {
 		unitManager.getInstance();
 		shop = new Shop();
+		fileData = new FileData();
 		
 	}
 
