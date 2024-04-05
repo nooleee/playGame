@@ -103,7 +103,7 @@ public class Guild {
 		System.out.print(" [레벨 : 1]");
 		System.out.printf(" [체력 : %d / %d]\n", hp, hp);
 		System.out.printf("[공격력 : %d]",attack);
-		System.out.printf(" [방어력 : %d\n",def);
+		System.out.printf(" [방어력 : %d]\n",def);
 		System.out.println("길드원을 추가합니다.");
 		System.out.println("===============================");
 		

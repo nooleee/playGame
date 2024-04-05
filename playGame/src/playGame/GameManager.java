@@ -29,8 +29,8 @@ public class GameManager {
 			return true;
 		curStage = nextStage;
 		Stage stage = stageList.get(curStage);
-		
 		stage.setStage();
+		
 		boolean run = true;
 		while(true) {
 			run = stage.update();
