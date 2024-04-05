@@ -60,7 +60,7 @@ public class FileData {
 			String data = String.format("%s/%d/%d/%d/%d/%s/%d\n", temp.name, temp.level, temp.maxhp, temp.power, temp.def, temp.party, temp.code);
 			result += data;
 			if(temp.weapon == null)
-				result += temp.weapon;
+				result += temp.weapon + "/";
 			else {
 				Item item = temp.weapon;
 				String weaponData = String.format("%d,%s,%d,%d/", item.getKind(), item.getName(), item.getPower(), item.getPrice());
@@ -68,7 +68,7 @@ public class FileData {
 			}
 			
 			if(temp.armor == null)
-				result += temp.armor;
+				result += temp.armor + "/";
 			else {
 				Item item = temp.armor;
 				String armorData = String.format("%d,%s,%d,%d/", item.getKind(), item.getName(), item.getPower(), item.getPrice());
@@ -76,7 +76,7 @@ public class FileData {
 			}
 			
 			if(temp.ring == null)
-				result += temp.ring;
+				result += temp.ring + "/";
 			else {
 				Item item = temp.ring;
 				String ringData = String.format("%d,%s,%d,%d", item.getKind(), item.getName(), item.getPower(), item.getPrice());
@@ -133,13 +133,23 @@ public class FileData {
 	
 	private void loadDataGuild(int size, BufferedReader br) throws IOException {
 		for(int i = 0; i < size; i++) {
+			Player target = Player.getGuildList().get(i);
 			String unitData = br.readLine();
 			String[] unitInfo = unitData.split("/");
 			loadDataGuildUnit(unitInfo);
 			
 			String itemData = br.readLine();
 			String[] itemInfo = itemData.split("/");
-			loadDataGuildItem(itemInfo);
+			loadDataGuildItem(itemInfo, target);
+			
+			String invenSize = br.readLine();
+			System.out.println("invenSize : " + invenSize);
+			int inSize = Integer.parseInt(invenSize);
+			
+			if(inSize == 0)
+				return;
+			
+			Player.inven.getItemList().clear();
 			
 			
 			
@@ -155,6 +165,8 @@ public class FileData {
 		boolean party = Boolean.parseBoolean(info[5]);
 		int code = Integer.parseInt(info[6]);
 		
+
+		
 		if(code == 1)
 			Player.getGuildList().add(new Warrior(name, level, maxhp, power, def, code));
 		else if(code == 2)
@@ -164,7 +176,44 @@ public class FileData {
 		
 	}
 	
-	private void loadDataGuildItem(String[] info) {
+	private void loadDataGuildItem(String[] info, Player target) {
+		if(info[0].equals("null"))
+			target.weapon = null;
+		else {
+			String[] weapon = info[0].split(",");
+			int kind = Integer.parseInt(weapon[0]);
+			String name = weapon[1];
+			int power = Integer.parseInt(weapon[2]);
+			int price = Integer.parseInt(weapon[3]);
+			Item item = new Item();
+			item.setItem(kind, name, power, price);
+			target.weapon = item;
+		}
 		
+		if(info[1].equals("null"))
+			target.armor = null;
+		else {
+			String[] armor = info[1].split(",");
+			int kind = Integer.parseInt(armor[0]);
+			String name = armor[1];
+			int power = Integer.parseInt(armor[2]);
+			int price = Integer.parseInt(armor[3]);
+			Item item = new Item();
+			item.setItem(kind, name, power, price);
+			target.armor = item;
+		}
+		
+		if(info[2].equals("null"))
+			target.ring = null;
+		else {
+			String[] ring = info[2].split(",");
+			int kind = Integer.parseInt(ring[0]);
+			String name = ring[1];
+			int power = Integer.parseInt(ring[2]);
+			int price = Integer.parseInt(ring[3]);
+			Item item = new Item();
+			item.setItem(kind, name, power, price);
+			target.ring = item;
+		}
 	}
 }
