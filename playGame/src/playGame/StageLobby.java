@@ -21,7 +21,7 @@ public class StageLobby extends Stage {
 
 	@Override
 	public void setStage() {
-		// TODO Auto-generated method stub
+		UnitManager.getInstance().setUnit();
 		
 	}
 
