@@ -46,20 +46,48 @@ public class Shop {
 	public void shopMenu() {
 		while(true) {
 			System.out.println("==========[상점]==========");
-			System.out.println("[1.무기] [2.방어구] [3.반지]");
+			System.out.println("[1.무기] [2.방어구] [3.반지] [0.뒤로가기]");
 			int sel = GameManager.scan.nextInt() - 1;
 			
-			if(sel < 1 || sel > 3)
+			if(sel < 01 || sel > 3)
 				continue;
 			
-			if(sel == Item.WEAPON) 
-				System.out.println("==========[무기]==========");
-			else if(sel == Item.ARMOR) 
-				System.out.println("==========[방어구]==========");
-			else if(sel == Item.RING) 
-				System.out.println("==========[반지]==========");
+			if(sel == 0)
+				break;
 			
-			printItem(sel);
+			while(true) {
+				if(sel == Item.WEAPON) 
+					System.out.println("==========[무기]==========");
+				else if(sel == Item.ARMOR) 
+					System.out.println("==========[방어구]==========");
+				else if(sel == Item.RING) 
+					System.out.println("==========[반지]==========");
+				
+				printItem(sel);
+				
+				System.out.println("============================");
+				System.out.printf("[골드 : %d]\n", Player.money);
+				System.out.println("구입할 아이템을 선택하세요.[0.뒤로가기]");
+				
+				int choice = GameManager.scan.nextInt();
+				
+				if(choice == 0)
+					break;
+				
+				int cnt = 0;
+				for(int i = 0; i < itemList.size(); i++) {
+					Item item = itemList.get(i);
+					if(item.getKind() == sel) {
+						cnt++;
+						if(cnt == choice) {
+							Player.inven.addItem(item);
+							Player.money -= item.getPrice();
+							System.out.println("[아이템 구입 완료]");
+							break;
+						}
+					}
+				}
+			}
 		}
 	}
 	
