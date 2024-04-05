@@ -33,8 +33,10 @@ public class StageSetting extends Stage {
 				Player.inven.inventoryMenu();
 			else if(sel == SAVE) {}
 			else if(sel == LOAD) {}
-			else if(sel == 0)
+			else if(sel == 0) {
+				GameManager.nextStage = "LOBBY";
 				break;
+			}
 		}
 		return false;
 	}
