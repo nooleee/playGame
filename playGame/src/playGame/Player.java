@@ -10,6 +10,11 @@ public abstract class Player extends Unit {
 	public static Guild guild = new Guild();
 	public static Inventory inven = new Inventory();
 	
+	private void setPlayer() {
+		money = 10000;
+		guild.setGuild();
+	}
+	
 	public Player(String name, int level,  int maxHp, int power, int def, int exp) {
 		super(name, level, maxHp, power, def, exp);
 	}
