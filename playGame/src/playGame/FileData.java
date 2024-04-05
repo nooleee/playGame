@@ -2,7 +2,6 @@ package playGame;
 
 import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -15,7 +14,7 @@ public class FileData {
 	private String fileName = "TEXT RPG";
 	private FileReader fr = null;
 	private BufferedReader br = null;
-	private File file;
+	private File file = new File(fileName);
 	
 	
 	public void saveData() {
@@ -105,7 +104,6 @@ public class FileData {
 	}
 	
 	public void loadData() {
-		file = new File(fileName);
 		if(file.exists()) {
 			try {
 				fr = new FileReader(fileName);
@@ -124,8 +122,9 @@ public class FileData {
 				
 				fr.close();
 				br.close();
+				System.out.println("파일 로드 성공");
 			} catch (Exception e) {
-				// TODO Auto-generated catch block
+				System.out.println("파일 로드 실패");
 				e.printStackTrace();
 			}
 		}
@@ -133,11 +132,11 @@ public class FileData {
 	
 	private void loadDataGuild(int size, BufferedReader br) throws IOException {
 		for(int i = 0; i < size; i++) {
-			Player target = Player.getGuildList().get(i);
 			String unitData = br.readLine();
 			String[] unitInfo = unitData.split("/");
 			loadDataGuildUnit(unitInfo);
 			
+			Player target = Player.getGuildList().get(i);
 			String itemData = br.readLine();
 			String[] itemInfo = itemData.split("/");
 			loadDataGuildItem(itemInfo, target);
@@ -169,11 +168,11 @@ public class FileData {
 
 		
 		if(code == 1)
-			Player.getGuildList().add(new Warrior(name, level, maxhp, power, def, code));
+			Player.getGuildList().add(new Warrior(name, level, maxhp, power, def, party, code));
 		else if(code == 2)
-			Player.getGuildList().add(new Wizard(name, level, maxhp, power, def, code));
+			Player.getGuildList().add(new Wizard(name, level, maxhp, power, def, party, code));
 		else if(code == 3)
-			Player.getGuildList().add(new Healer(name, level, maxhp, power, def, code));
+			Player.getGuildList().add(new Healer(name, level, maxhp, power, def, party, code));
 		
 	}
 	
