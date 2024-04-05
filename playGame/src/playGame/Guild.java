@@ -61,8 +61,8 @@ public class Guild {
 	public void guildMenu() {
 		while(true) {
 			System.out.println("==========[길드 관리]==========");
-			System.out.println("[1.길드 목록]\t\t[2.길드원 추가]\t\t[3.길드원 삭제]");
-			System.out.println("[4.파티원 교체]\t\t\t[0.종료]");
+			System.out.println("[1.길드 목록]   [2.길드원 추가]  [3.길드원 삭제]");
+			System.out.println("[4.파티원 교체]  [0.종료]");
 			int sel = GameManager.scan.nextInt();
 			
 			if(sel < 0 || sel > 4)

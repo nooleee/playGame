@@ -10,10 +10,16 @@ public class UnitManager {
 	private String[] mons = {"MonsterWolf", "MonsterBat", "MonsterOrc"};
 	private Random ran = new Random();
 	
-	public UnitManager() {
+	private UnitManager() {
 		player_list.add(new Warrior("전사", 5, 1000, 45, 45, 0));
 		player_list.add(new Wizard("마법사", 8, 800, 60, 30, 0));
 		player_list.add(new Healer("힐러", 3, 500, 70, 30, 0));
+	}
+	
+	private static UnitManager instance = new UnitManager();
+	
+	public static UnitManager getInstance() {
+		return instance;
 	}
 	
 	public void monsterRandomSet(int size) {

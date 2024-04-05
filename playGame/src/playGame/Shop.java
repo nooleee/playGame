@@ -97,7 +97,7 @@ public class Shop {
 			Item item = itemList.get(i);
 			if(item.getKind() == sel) {
 				System.out.printf("[%d번]\n", cnt+1);
-				System.out.printf("[이름 : %s] [능력 : %d] [가격 : %d]", item.getName(), item.getPower(), item.getPrice());
+				System.out.printf("[이름 : %s] [능력 : %d] [가격 : %d]\n", item.getName(), item.getPower(), item.getPrice());
 				cnt++;
 			}
 			else
