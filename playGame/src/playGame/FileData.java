@@ -141,18 +141,19 @@ public class FileData {
 			String itemData = br.readLine();
 			String[] itemInfo = itemData.split("/");
 			loadDataGuildItem(itemInfo, target);
-			
-			String invenSize = br.readLine();
-			System.out.println("invenSize : " + invenSize);
-			int inSize = Integer.parseInt(invenSize);
-			
-			if(inSize == 0)
-				return;
-			
-			Player.inven.getItemList().clear();
-			
-			
-			
+		}
+		
+		String invenSize = br.readLine();
+		System.out.println("invenSize : " + invenSize);
+		int inSize = Integer.parseInt(invenSize);
+		
+		if(inSize == 0)
+			return;
+		
+		Player.inven.getItemList().clear();
+		for(int i = 0; i < inSize; i++) {
+			String invenData = br.readLine();
+			loadDataInventory(inSize, invenData);
 		}
 	}
 	
@@ -215,5 +216,17 @@ public class FileData {
 			item.setItem(kind, name, power, price);
 			target.ring = item;
 		}
+	}
+	
+	private void loadDataInventory(int size, String data) {
+		String[] info = data.split("/");
+		int kind = Integer.parseInt(info[0]);
+		String name = info[1];
+		int power = Integer.parseInt(info[2]);
+		int price = Integer.parseInt(info[3]);
+		
+		Item item = new Item();
+		item.setItem(kind, name, power, price);
+		Player.inven.getItemList().add(item);
 	}
 }
