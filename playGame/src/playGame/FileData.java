@@ -2,6 +2,7 @@ package playGame;
 
 import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -56,7 +57,7 @@ public class FileData {
 		String result = "";
 		for(int i = 0; i < info.size(); i++) {
 			Player temp = info.get(i);
-			String data = String.format("%s/%d/%d/%d/%d/%s\n", temp.name, temp.level, temp.maxhp, temp.power, temp.def, temp.party);
+			String data = String.format("%s/%d/%d/%d/%d/%s/%d\n", temp.name, temp.level, temp.maxhp, temp.power, temp.def, temp.party, temp.code);
 			result += data;
 			if(temp.weapon == null)
 				result += temp.weapon;
@@ -104,6 +105,66 @@ public class FileData {
 	}
 	
 	public void loadData() {
+		file = new File(fileName);
+		if(file.exists()) {
+			try {
+				fr = new FileReader(fileName);
+				br = new BufferedReader(fr);
+				
+				String money = br.readLine();
+				Player.money = Integer.parseInt(money);
+				
+				String guildSize = br.readLine();
+				int size = Integer.parseInt(guildSize);
+				Player.guild.getGuildList().clear();
+				
+				loadDataGuild(size, br);
+				
+				
+				
+				fr.close();
+				br.close();
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+	}
+	
+	private void loadDataGuild(int size, BufferedReader br) throws IOException {
+		for(int i = 0; i < size; i++) {
+			String unitData = br.readLine();
+			String[] unitInfo = unitData.split("/");
+			loadDataGuildUnit(unitInfo);
+			
+			String itemData = br.readLine();
+			String[] itemInfo = itemData.split("/");
+			loadDataGuildItem(itemInfo);
+			
+			
+			
+		}
+	}
+	
+	private void loadDataGuildUnit(String[] info) {
+		String name = info[0];
+		int level = Integer.parseInt(info[1]);
+		int maxhp = Integer.parseInt(info[2]);
+		int power = Integer.parseInt(info[3]);
+		int def = Integer.parseInt(info[4]);
+		boolean party = Boolean.parseBoolean(info[5]);
+		int code = Integer.parseInt(info[6]);
+		
+		if(code == 1)
+			Player.getGuildList().add(new Warrior(name, level, maxhp, power, def, code));
+		else if(code == 2)
+			Player.getGuildList().add(new Wizard(name, level, maxhp, power, def, code));
+		else if(code == 3)
+			Player.getGuildList().add(new Healer(name, level, maxhp, power, def, code));
+		
+	}
+	
+	private void loadDataGuildItem(String[] info) {
 		
 	}
 }
