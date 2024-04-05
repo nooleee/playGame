@@ -8,6 +8,10 @@ public class Wizard extends Player {
 		super(name, level, maxHp, power, def, code);
 	}
 
+	public Wizard(String name, int level,  int maxHp, int power, int def, boolean party, int code) {
+		super(name, level, maxHp, power, def, party, code);
+	}
+	
 	@Override
 	public void skill(Vector<Monster> monList, Vector<Player> playerList) {
 		int cnt = 0;

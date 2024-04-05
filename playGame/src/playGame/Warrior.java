@@ -8,6 +8,10 @@ public class Warrior extends Player {
 		super(name, level, maxHp, power, def, code);
 	}
 
+	public Warrior(String name, int level,  int maxHp, int power, int def, boolean party, int code) {
+		super(name, level, maxHp, power, def, party, code);
+	}
+	
 	private Random ran = new Random();
 
 	@Override
