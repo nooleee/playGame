@@ -7,6 +7,7 @@ public abstract class Unit {
 	protected String name;
 	protected int level;
 	protected int def;
+	protected int code;
 	protected boolean party;
 	protected Item weapon;
 	protected Item armor;
@@ -17,20 +18,21 @@ public abstract class Unit {
 		
 	}
 	
-	public Unit(String name, int level,  int maxHp, int power, int def) {
+	public Unit(String name, int level,  int maxHp, int power, int def, int code) {
 		this.name = name;
 		this.curhp = maxHp;
 		this.maxhp = maxHp;
 		this.power = power;
 		this.level = level;
 		this.def = def;
+		this.code = code;
 		this.party = false;
 		this.weapon = null;
 		this.armor = null;
 		this.ring = null;
 	}
 	
-	public Unit(String name, int level,  int maxHp, int power, int def, boolean party) {
+	public Unit(String name, int level,  int maxHp, int power, int def, boolean party, int code) {
 		super();
 		this.name = name;
 		this.curhp = maxHp;
@@ -38,6 +40,7 @@ public abstract class Unit {
 		this.power = power;
 		this.level = level;
 		this.def = def;
+		this.code = code;
 		this.party = party;
 		this.weapon = null;
 		this.armor = null;

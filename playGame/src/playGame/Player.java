@@ -16,12 +16,12 @@ public abstract class Player extends Unit {
 	
 	public Player() {};
 	
-	public Player(String name, int level,  int maxHp, int power, int def) {
-		super(name, level, maxHp, power, def);
+	public Player(String name, int level,  int maxHp, int power, int def, int code) {
+		super(name, level, maxHp, power, def, code);
 	}
 	
-	public Player(String name, int level,  int maxHp, int power, int def, boolean party) {
-		super(name, level, maxHp, power, def, party);
+	public Player(String name, int level,  int maxHp, int power, int def, boolean party, int code) {
+		super(name, level, maxHp, power, def, party, code);
 	}
 	
 	public abstract void skill(Vector<Monster> monList, Vector<Player> playerList);
