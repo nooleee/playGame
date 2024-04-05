@@ -36,11 +36,7 @@ public class StageSetting extends Stage {
 				fileData.saveData();
 			}
 			else if(sel == LOAD) {
-				try {
-					
-				} catch (Exception e) {
-					// TODO: handle exception
-				}
+				fileData.loadData();
 			}
 			else if(sel == 0) {
 				GameManager.nextStage = "LOBBY";
