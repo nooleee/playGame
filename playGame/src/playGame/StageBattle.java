@@ -4,7 +4,7 @@ import java.util.Random;
 import java.util.Vector;
 
 public class StageBattle extends Stage {
-	private UnitManager unitManager;
+	private UnitManager unitManager = UnitManager.getInstance();
 	private Vector<Player> playerList;
 	private Vector<Monster> monList;
 	private Random ran = new Random();
@@ -51,7 +51,6 @@ public class StageBattle extends Stage {
 	
 	@Override
 	public void setStage() {
-		unitManager.getInstance();
 		unitManager.monster_list.clear();
 		unitManager.monsterRandomSet(4);
 		playerList = null;

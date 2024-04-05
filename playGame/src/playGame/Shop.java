@@ -49,7 +49,7 @@ public class Shop {
 			System.out.println("[1.무기] [2.방어구] [3.반지] [0.뒤로가기]");
 			int sel = GameManager.scan.nextInt();
 			
-			if(sel < 01 || sel > 3)
+			if(sel < 0 || sel > 3)
 				continue;
 			
 			if(sel == 0)
