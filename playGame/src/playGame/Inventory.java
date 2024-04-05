@@ -41,7 +41,7 @@ public class Inventory {
 			printItemList();
 			
 			System.out.println("착용 할 아이템 번호를 입력하세요.[0.뒤로가기]");
-			int itemNum = GameManager.scan.nextInt() - 1;
+			int itemNum = GameManager.scan.nextInt();
 			
 			if(itemNum < 0 || itemNum > itemList.size())
 				continue;
@@ -49,23 +49,23 @@ public class Inventory {
 			if(itemNum == 0)
 				break;
 			
-			if(itemList.get(itemNum).getKind() == Item.WEAPON) {
+			if(itemList.get(itemNum-1).getKind() == Item.WEAPON) {
 				if(Player.getGuildUnit(sel).weapon != null)
 					itemList.add(Player.getGuildUnit(sel).weapon);
-				Player.getGuildUnit(sel).weapon = itemList.get(itemNum);
+				Player.getGuildUnit(sel).weapon = itemList.get(itemNum-1);
 			}
-			else if(itemList.get(itemNum).getKind() == Item.ARMOR) {
+			else if(itemList.get(itemNum-1).getKind() == Item.ARMOR) {
 				if(Player.getGuildUnit(sel).armor != null)
 					itemList.add(Player.getGuildUnit(sel).armor);
-				Player.getGuildUnit(sel).armor = itemList.get(itemNum);
+				Player.getGuildUnit(sel).armor = itemList.get(itemNum-1);
 			}
-			else if(itemList.get(itemNum).getKind() == Item.RING) {
+			else if(itemList.get(itemNum-1).getKind() == Item.RING) {
 				if(Player.getGuildUnit(sel).ring != null)
 					itemList.add(Player.getGuildUnit(sel).ring);
-				Player.getGuildUnit(sel).ring = itemList.get(itemNum);
+				Player.getGuildUnit(sel).ring = itemList.get(itemNum-1);
 			}
 			
-			itemList.remove(itemNum);
+			itemList.remove(itemNum-1);
 		}
 	}
 	
