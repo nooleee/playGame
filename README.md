@@ -42,8 +42,11 @@
 >Class Diagram (UML)
 >
 ![diagram](https://github.com/nooleee/playGame/blob/master/image/playGame-Unit.jpg?raw=true) <br>
+<br>
 ![diagram](https://github.com/nooleee/playGame/blob/master/image/playGame-Stage.jpg?raw=true) <br>
-![diagram](https://github.com/nooleee/playGame/blob/master/image/playGame2.jpg?raw=true) <br>
+<br>
+![diagram](https://github.com/nooleee/playGame/blob/master/image/playGame-sub%20class.jpg?raw=true) <br>
+<br>
 
 > Demo
 > 
