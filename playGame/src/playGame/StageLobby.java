@@ -8,6 +8,9 @@ public class StageLobby extends Stage {
 		System.out.println("[1.전투] [2.설정] [3.종료]");
 		int sel = GameManager.scan.nextInt();
 		
+		if(sel < 1 || sel > 3)
+			return true;
+		
 		
 		if(sel == 1) 
 			GameManager.nextStage = "BATTLE";
@@ -18,11 +21,9 @@ public class StageLobby extends Stage {
 		
 		return false;
 	}
-
+	
 	@Override
 	public void setStage() {
-		UnitManager.getInstance().setUnit();
-		
 	}
 
 }

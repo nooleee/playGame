@@ -9,6 +9,9 @@ public class StageTitle extends Stage {
 		String start = GameManager.scan.next();
 		if(start.equals("시작"))
 			GameManager.nextStage = "LOBBY";
+		else
+			return true;
+		
 		return false;
 	}
 
