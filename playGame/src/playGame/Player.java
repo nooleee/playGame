@@ -22,33 +22,33 @@ public abstract class Player extends Unit {
 	
 	public abstract void skill(Vector<Monster> monList, Vector<Player> playerList);
 
-	  public void guildMenu() {
-	    guild.guildMenu();
-	  }
-
-	  public void inventoryMenu() {
-	    inven.inventoryMenu();
-	  }
-
-	  static public Vector<Player> getGuildList() {
-	    return guild.getGuildList();
-	  }
-
-	  static public ArrayList<Item> getItemList() {
-	    return inven.getItemList();
-	  }
-
-	  static public Player getGuildUnit(int num) {
-	    return guild.getGuildUnit(num);
-	  }
-
-	  static public int getGuildSize() {
-	    return guild.getGuildList().size();
-	  }
-
-	  static public int getItemSize() {
-	    return inven.getItemList().size();
-	  }
+	public void guildMenu() {
+		guild.guildMenu();
+	}
+	
+	public void inventoryMenu() {
+		inven.inventoryMenu();
+	}
+	
+	public static Vector<Player> getGuildList() {
+		return guild.getGuildList();
+	}
+	
+	public static ArrayList<Item> getItemList() {
+		return inven.getItemList();
+	}
+	
+	public static Player getGuildUnit(int num) {
+		return guild.getGuildUnit(num);
+	}
+	
+	public static int getGuildSize() {
+		return guild.getGuildList().size();
+	}
+	
+	public static int getItemSize() {
+		return inven.getItemList().size();
+	}
 	
 	
 }
