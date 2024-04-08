@@ -14,15 +14,9 @@ public class UnitManager {
 		player_list.add(new Warrior("전사", 5, 1000, 45, 45, 1));
 		player_list.add(new Wizard("마법사", 8, 800, 60, 30, 2));
 		player_list.add(new Healer("힐러", 3, 500, 70, 30, 3));
-		
-		
-	}
-	
-	public void setUnit() {
 		Player.guild.setGuild();
 	}
 	
-
 	private static UnitManager instance = new UnitManager();
 	
 	public static UnitManager getInstance() {

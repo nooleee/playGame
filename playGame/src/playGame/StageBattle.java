@@ -42,7 +42,12 @@ public class StageBattle extends Stage {
 				}
 			}
 			checkLive();
-			if(monDead <= 0 || playerDead <= 0)
+			if(monDead <= 0) {
+				Player.money += 500;
+				System.out.println();
+				break;
+			}
+			if(playerDead <= 0)
 				break;
 		}
 		GameManager.nextStage = "LOBBY";

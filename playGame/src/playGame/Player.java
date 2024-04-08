@@ -10,10 +10,6 @@ public abstract class Player extends Unit {
 	public static Guild guild = new Guild();
 	public static Inventory inven = new Inventory();
 	
-//	public void setPlayer() {
-//		guild.setGuild();
-//	}
-	
 	public Player() {};
 	
 	public Player(String name, int level,  int maxHp, int power, int def, int code) {
