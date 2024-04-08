@@ -122,6 +122,15 @@ public abstract class Unit {
 		}
 	}
 	
+	public void attack(Player player) {
+		player.curhp -= power;
+		System.out.printf("[%s]이 [%s]에게 %d의 데미지를 입힙니다.\n", name, player.name, power);
+		if(player.curhp <= 0) {
+			System.out.printf("[%s]이 [%s]을 쓰러뜨렸습니다.\n", name, player.name);
+			player.curhp = 0;
+		}
+	}
+	
 	public void printData() {
 		System.out.printf("[%s][%d/%d][%d]\n", name, curhp, maxhp, power);
 	}
